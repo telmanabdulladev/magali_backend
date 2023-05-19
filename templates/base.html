@@ -11,7 +11,7 @@
         {% endblock %}
     </title>
     {% load static %}
-    <link href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
 </head>
 <body>
@@ -19,7 +19,7 @@
 
     
         <div class="header" onclick="show();">
-        <div><img src="/img/logo.jpeg"></div>
+        <div><img src="{% static '/img/logo.jpeg' %}"></div>
         
         <div class="center">Magali Consultancy
         <br>
@@ -32,7 +32,7 @@
         <div class="menu" id="menu">
         <div class="line"></div>
         <div class="list"><a href="index.html">Ana Shifə</a></div>
-        <div class="list"><a href="haqqimizda.html">Haqqımızda</a></div>
+        <div class="list"><a href="{%url 'magali_app:about'%}">Haqqımızda</a></div>
         <div class="list" onclick="korporativ()"><a href="#">Korporativ təlimlər</a></div> 
         <div class="list a"><a href="#">Satış</a></div>
         <div class="list a"><a href="#">Marketing və PR</a></div>
