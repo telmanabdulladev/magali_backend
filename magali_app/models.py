@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class SettingsModel(models.Model):
     about_banner = models.ImageField(upload_to="imgfiles/",null=True,blank=True)
-    about_content = models.CharField(max_length=256,null=True,blank=True)
+    about_content = models.TextField(null= True, blank = True)
     vision = models.CharField(max_length=256,null = True, blank= True)
     mission = models.CharField(max_length=256,null= True, blank = True)
     values_context = models.CharField(max_length=256,null= True, blank = True)
@@ -14,10 +14,34 @@ class SettingsModel(models.Model):
 
     def __str__(self):
         return "Settings"
+    
+class ServicesModel(models.Model):
+    title = models.CharField(max_length=256,null=True, blank=True)
+    service_content = models.TextField(null= True, blank = True)
 
+    class Meta:
+        verbose_name = "Service"
+        verbose_name_plural = "Services"
+
+    def __str__(self):
+        return self.title
+    
+
+class ServicesImagesModel(models.Model):
+    service = models.ForeignKey(ServicesModel,on_delete=models.CASCADE,related_name="service_images")
+    image = models.ImageField(upload_to="service_imgfiles/")
+
+    class Meta:
+        verbose_name = "Service Image"
+        verbose_name_plural = "Service Images"
+
+    def __str__(self):
+        return self.service.title
+
+    
 class ValuesImagesModel(models.Model):
-    setting = models.ForeignKey(SettingsModel,on_delete=models.CASCADE, related_name="images")
-    image = models.ImageField(upload_to="imgfiles/") 
+    setting = models.ForeignKey(SettingsModel,on_delete=models.CASCADE, related_name="values_images")
+    image = models.ImageField(upload_to="values_imgfiles/") 
 
     class Meta:
         verbose_name = "Values Image"
