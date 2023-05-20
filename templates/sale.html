@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+Satış
+{% endblock %}
+
+{% block content %}
+<div class="about">
+    {% for ctcategory in ctcategories %}
+    <div class="about_head gradient"><h2>{{ctcategory.name}}</h2></div>
+    {% endfor %}
+    <div class="about_content">
+    {% for image in ctcategory.images.all %}
+        <div class="about_img"><img src="{{ctcategory.image.url}}" alt=""></div>
+    {% endfor %}
+    
+        <div class="about_text"><p>{{ctcategory.content}}</p></div>
+    </div>
+  </div>
+  
+{% endblock %}
+

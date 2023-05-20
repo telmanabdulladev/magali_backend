@@ -15,6 +15,8 @@
     
 </head>
 <body>
+<a href="https://web.whatsapp.com/send?phone=994502262424&amp;text=Salam.&amp;app_absent=0" 
+ target="_blank"><img src="wp.png" style="width:70px;position:fixed;bottom:20px;right:20px;z-index:9999;"></a>
     <div class="main" >
 
     
@@ -31,13 +33,13 @@
         </div>
         <div class="menu" id="menu">
         <div class="line"></div>
-        <div class="list"><a href="index.html">Ana Shifə</a></div>
+        <div class="list"><a href="{%url 'magali_app:index'%}">Ana səhifə</a></div>
         <div class="list"><a href="{%url 'magali_app:about'%}">Haqqımızda</a></div>
         <div class="list" onclick="korporativ()"><a href="#">Korporativ təlimlər</a></div> 
-        <div class="list a"><a href="#">Satış</a></div>
-        <div class="list a"><a href="#">Marketing və PR</a></div>
+        <div class="list a"><a href="{%url 'magali_app:sale'%}">Satış</a></div>
+        <div class="list a"><a href="{%url 'magali_app:marketing'%}">Marketing və PR</a></div>
         <div class="list"><a href="#">Konsaltinq</a></div>
-        <div class="list"><a href="#">Əlaqə</a></div> 
+        <div class="list"><a href="{%url 'magali_app:contact'%}">Əlaqə</a></div> 
         </div>
         </div>
     {% block content %}
@@ -45,7 +47,7 @@
     {% endblock %}
 
     <div class="footer">
-        <div class="foot_list location"><a href="index.html">Ana Shifə</a></div>
+        <div class="foot_list location"><a href="index.html">Ana Səhifə</a></div>
         <div class="foot_list location"><a href="about.html">Haqqımızda</a></div>
         <div class="foot_list location"><a href="corporative.html">Korporativ təlimlər</a></div>
         <div class="foot_list location"><a href="consalting.html">Konsalting</a></div>
@@ -61,7 +63,17 @@
         <div class="company_name foot_list location">Magali Consultancy, 2022</div>
     </div>
   <script src="{% static '/javascript/script.js'%}"></script>
-    
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css">
+  <script>
+    $("#mobile_code").intlTelInput({
+        initialCountry: "az",
+        separateDialCode: true,
+    });
+    </script>
     
 </body>
   

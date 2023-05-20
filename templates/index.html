@@ -1,7 +1,7 @@
    {% extends 'base.html' %}
     {% block content %}
     <div class="about">
-        <div class="about_head gradient"><h2>Haqqimizda</h2></div>
+        <div class="about_head gradient"><h2>Haqqımızda</h2></div>
         <div class="about_content">
             <div class="about_img"><img src="{{settings.about_banner.url}}" alt=""></div>
             <div class="about_text"><p>{{settings.about_content}}</p></div>       
@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="services">
-          <div class="services_head gradient"><h2>Xidmetlər</h2></div>
+          <div class="services_head gradient"><h2>Xidmətlər</h2></div>
           {% for service in services %}
           <div class="services_content"><h3>{{service.title}}</h3>
               {% for image in service.service_images.all %}
@@ -20,12 +20,5 @@
           </div>
           {% endfor %}
       </div>
-       <div class="services">
-              <div class="services_head gradient"><h2>Əlaqə</h2></div>
-              <div class="services_content">
-                  <div class="services_img"><img src="/img/image1.jpeg" alt=""></div>
-                  <div class="services_text"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis possimus reprehenderit minima maiores dolorum aut cupiditate illum nisi perspiciatis unde laborum sint, similique ipsam, ratione officiis totam quasi repudiandae nobis libero porro. Doloremque reprehenderit, tempora repudiandae, modi saepe repellendus eaque iste voluptatem nesciunt eligendi sed unde possimus autem nemo facilis.</p></div>
-                  <div class="services_btn"><button class="btn">Daha ətraflı</button></div>
-               </div>
-        </div> 
+    
      {% endblock %}

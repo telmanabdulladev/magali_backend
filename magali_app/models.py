@@ -74,13 +74,15 @@ class CTCategoryModel(models.Model):
 
 class CTCategoryImagesModel(models.Model):
     ctcategory = models.ForeignKey(CTCategoryModel,on_delete=models.CASCADE,related_name="category_images")
+    image = models.ImageField(upload_to="ctc_imgfiles/") 
+
 
     class Meta:
         verbose_name = "CTCategory Image"
         verbose_name_plural = "CTCategory Images"
 
     def __str__(self):
-        return self.ctcategory
+        return str(self.ctcategory)
 
 class ContactModel(models.Model):
     first_name = models.CharField(max_length=256)

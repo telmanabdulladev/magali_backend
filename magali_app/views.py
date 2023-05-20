@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from magali_app.models import SettingsModel,ServicesModel,ContactModel
+from magali_app.models import SettingsModel,ServicesModel,ContactModel,CTCategoryModel,CorporativeTrainingModel
 
 
 # Create your views here.
@@ -39,6 +39,24 @@ def about(request):
         "settings": settings
     }
     return render(request,"haqqimizda.html",context)
+
+def sale(request):
+    # corporative = CorporativeTrainingModel.objects.all()
+    ctcategories = CTCategoryModel.objects.all()
+    context = {
+        "ctcategories":ctcategories
+    }
+    # context["corporative"] = corporative
+    return render(request,'sale.html', context)
+
+def marketing(request):
+    # corporative = CorporativeTrainingModel.objects.all()
+    ctcategory = CTCategoryModel.objects.first()
+    context = {
+        "ctcategory":ctcategory
+    }
+    # context["corporative"] = corporative
+    return render(request,'sale.html', context)
 
 
 

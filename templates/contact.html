@@ -4,34 +4,42 @@
    {% endblock %}
    
    {% block content %}
-    <form method="POST">
-        {%csrf_token%}
-        <div class="mb-3">
-          <label for="text" class="form-label">Ad</label>
-          <input type="text" class="form-control" name="first_name" id="text" aria-describedby="emailHelp">
+   <div class="container space">
+    <form method="POST" class="form">
+      {%csrf_token%}
+      <div class="mb-3">
+      <a href="https://web.whatsapp.com/send?phone=994502262424&amp;text=Salam.&amp;app_absent=0"><input type="button" class="form-control btn btn-success border-wp" aria-describedby="emailHelp" value="whatsapda yazın"></a>
+       
+      </div>
+      <div class="mb-3">
+        <label for="text" class="form-label">Ad</label>
+        <input type="text" class="form-control" name="first_name" id="text" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+          <label for="text_soyad" class="form-label">Soyad</label>
+          <input type="text" class="form-control" name="last_name" id="text_soyad" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
-            <label for="text_soyad" class="form-label">Soyad</label>
-            <input type="text" class="form-control" name="last_name" id="text_soyad" aria-describedby="emailHelp">
-          </div>
-          <div class="mb-3">
-            <label for="text_company" class="form-label">Sirket adi</label>
-            <input type="text" class="form-control" name="company_name" id="text_company" aria-describedby="emailHelp">
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
-            
-          </div>
-          <div class="mb-3">
-            <label for="contact" class="form-label">Elaqe nomresi</label>
-            <input type="text" class="form-control" name="phone_num" id="contact" aria-describedby="emailHelp">
-          </div>
-          <div class="mb-3">
-            <label for="message" class="form-label">Ismaric</label>
-            <input type="text" class="form-control" name="message" id="message" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-          </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+          <label for="text_company" class="form-label">Sirket adi</label>
+          <input type="text" class="form-control" name="company_name" id="text_company" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+          
+        </div>
+       
+        <div class="mb-3">
+          <label for="contact" class="form-label">Əlaqə nömrəsi</label> <br>
+          <input type="text" id="mobile_code" class="form-control f-control" placeholder="Phone Number" aria-describedby="emailHelp">
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Ismaric</label>
+          <input type="text" class="form-control" name="message" id="message" aria-describedby="emailHelp">
+        </div>
+      <button type="submit" class="btn btn-primary">Təsdiq</button>
+    </form>
+   </div>
+    
       {% endblock %}

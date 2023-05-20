@@ -6,6 +6,26 @@
 /*body{
     text-align: center;
 }*/
+.border-wp{
+    border-radius:30px;
+}
+.space{
+    
+    width:60%;
+    margin-top: 10px;
+}
+
+.intl-tel-input{
+    width: 100%;
+  }
+      
+  .iti {
+    width: 100%;
+  }
+
+.f-control{
+    width: 100% !important;
+}
 .gradient{
 background:linear-gradient(to bottom,#c500d3,white);
 
@@ -197,7 +217,6 @@ color:rgba(0,0,0,0.7);
 }
 
 .footer{
-    height:100vh;
     width:100%;
     background-color:  #808285;
     margin-top: 10px;
@@ -205,6 +224,7 @@ color:rgba(0,0,0,0.7);
     font-size: 16px;
     color:#ffffff;
     font-family: sans-serif;
+    padding-bottom:10px;
     
 }
 
