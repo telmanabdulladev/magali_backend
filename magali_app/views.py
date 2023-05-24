@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.contrib.auth.models import User
-from magali_app.models import SettingsModel,ServicesModel,ContactModel,CTCategoryModel,CorporativeTrainingModel
+from magali_app.models import SettingsModel,ConsultingUnitModel,ServicesModel,ContactModel,CTCategoryModel,CorporativeTrainingModel,ConsultingModel
+
 
 
 # Create your views here.
@@ -42,21 +43,39 @@ def about(request):
 
 def sale(request):
     # corporative = CorporativeTrainingModel.objects.all()
-    ctcategories = CTCategoryModel.objects.all()
+    ctcategory = get_object_or_404(CTCategoryModel,name="Satış")
     context = {
-        "ctcategories":ctcategories
+        "ctcategory":ctcategory
     }
     # context["corporative"] = corporative
     return render(request,'sale.html', context)
 
 def marketing(request):
     # corporative = CorporativeTrainingModel.objects.all()
-    ctcategory = CTCategoryModel.objects.first()
+    ctcategory = get_object_or_404(CTCategoryModel, name="Marketing və HR")
     context = {
         "ctcategory":ctcategory
     }
     # context["corporative"] = corporative
-    return render(request,'sale.html', context)
+    return render(request,'marketing.html', context)
+
+def consulting(request):
+    consulting = get_object_or_404(ConsultingModel, name="Konsaltinq")
+    context = {
+        "consulting":consulting
+    }
+    return render(request,"consulting.html",context)
+
+def unitdetail(request,id):
+    unit = get_object_or_404(ConsultingUnitModel, id=id)
+    context = {
+        "unit":unit
+    }
+    return render(request,"unit_detail.html",context)
+
+
+
+
 
 
 

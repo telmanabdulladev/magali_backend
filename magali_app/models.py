@@ -82,7 +82,7 @@ class CTCategoryImagesModel(models.Model):
         verbose_name_plural = "CTCategory Images"
 
     def __str__(self):
-        return str(self.ctcategory)
+        return self.ctcategory.name
 
 class ContactModel(models.Model):
     first_name = models.CharField(max_length=256)
@@ -98,6 +98,30 @@ class ContactModel(models.Model):
 
     def __str__(self):
         return self.first_name + " " + self.last_name
+    
+class ConsultingModel(models.Model):
+    name = models.CharField(max_length=256)
+    content=models.TextField(null= True, blank = True)
+    banner=models.ImageField(upload_to="consultingfiles/",null=True,blank=True)
 
+    class Meta:
+        verbose_name = "Consulting Model"
+        verbose_name_plural = "Consulting Models"
+
+    def __str__(self):
+        return self.name
+
+class ConsultingUnitModel(models.Model):
+    consulting = models.ForeignKey(ConsultingModel,on_delete=models.CASCADE,related_name="consultingunits")
+    name = models.CharField(max_length=256)
+    content = models.TextField(null= True, blank = True)
+    banner=models.ImageField(upload_to="unitfiles/",null=True,blank=True)
+
+    class Meta:
+        verbose_name = "Consulting Unit"
+        verbose_name_plural = "Consulting Units"
+
+    def __str__(self):
+        return self.name
 
 

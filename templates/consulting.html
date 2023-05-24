@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+{{consulting.name}}
+{% endblock %}
+
+{% block content%}
+<div class="about">
+    <div class="about_head gradient"><h2>{{consulting.name}}</h2></div>
+    <div class="about_content">
+      
+        <div class="about_img"><img src="{{consulting.banner.url}}" alt=""></div>
+    
+        <div class="about_text"><p>{{consulting.content}}</p></div>
+    </div>
+  </div>
+  {% for unit in consulting.consultingunits.all %}
+  <div class="about">
+    <div class="about_head gradient"><h2>{{unit.name}}</h2></div>
+
+    <div class="about_content">
+        <div class="about_text"><p>{{unit.content}}</p></div>
+    </div>
+  </div>
+  <div class="services">
+  <a href="{% url 'magali_app:unitdetail' unit.id %}"><div class="services_btn"><button class="btn">Daha ətraflı</button></div></a>
+  </div>  
+{% endfor %}
+{% endblock %}

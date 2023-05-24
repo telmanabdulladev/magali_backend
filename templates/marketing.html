@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}
-Marketing
+{{ctcategory.name}}
 {% endblock %}
 
 {% block content %}
 <div class="about">
     <div class="about_head gradient"><h2>{{ctcategory.name}}</h2></div>
     <div class="about_content">
-        <div class="about_img"><img src="{{ctcategory.images.url}}" alt=""></div>
+      {% for image in ctcategory.category_images.all %}
+        <div class="about_img"><img src="{{image.image.url}}" alt=""></div>
+      {% endfor %}
         <div class="about_text"><p>{{ctcategory.content}}</p></div>
     </div>
   </div>
