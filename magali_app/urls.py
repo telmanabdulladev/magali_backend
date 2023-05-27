@@ -10,4 +10,9 @@ urlpatterns = [
     path('marketing/',views.marketing,name="marketing"),
     path('consulting/',views.consulting,name="consulting"),
     path('unitdetail/<int:id>/',views.unitdetail,name="unitdetail"),
+    path('servicedetail/<int:id>/',views.servicedetail,name="servicedetail"),
+    path('messages/',views.contactmessages,name="messages"),
+
+
+    
 ]

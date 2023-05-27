@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from django.contrib.auth.models import User
 from magali_app.models import SettingsModel,ConsultingUnitModel,ServicesModel,ContactModel,CTCategoryModel,CorporativeTrainingModel,ConsultingModel
-
+from django.http import Http404
 
 
 # Create your views here.
@@ -36,8 +36,10 @@ def contact(request):
 
 def about(request):
     settings= SettingsModel.objects.first()
+    services=ServicesModel.objects.all()
     context = {
-        "settings": settings
+        "settings": settings,
+        "services": services,
     }
     return render(request,"haqqimizda.html",context)
 
@@ -72,6 +74,30 @@ def unitdetail(request,id):
         "unit":unit
     }
     return render(request,"unit_detail.html",context)
+
+def servicedetail(request, id):
+    service = get_object_or_404(ServicesModel, id = id)
+    context = {
+        "service":service
+    }
+    return render(request,"servicedetail.html",context)
+
+def contactmessages(request):
+    if not request.user.is_staff:
+        raise Http404
+    else:
+        messages = ContactModel.objects.all()
+        context = {
+            "messages":messages
+        }
+    return render(request,"messages.html",context)
+
+
+    
+
+
+
+
 
 
 

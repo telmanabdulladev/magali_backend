@@ -47,12 +47,14 @@
     {% endblock %}
 
     <div class="footer">
-        <div class="foot_list location"><a href="index.html">Ana Səhifə</a></div>
-        <div class="foot_list location"><a href="about.html">Haqqımızda</a></div>
-        <div class="foot_list location"><a href="corporative.html">Korporativ təlimlər</a></div>
-        <div class="foot_list location"><a href="consalting.html">Konsalting</a></div>
-        <div class="foot_list location"><a href="contact.html">Əlaqə</a></div>
-        <div class="foot_list location">+994773009393</div>
+        <div class="foot_list location"><a href="{%url 'magali_app:index'%}">Ana Səhifə</a></div>
+        <div class="foot_list location"><a href="{%url 'magali_app:about'%}">Haqqımızda</a></div>
+        {% for service in services %}
+        <div class="foot_list location"><a href="{%url 'magali_app:servicedetail' service.id%}">{{service.title}}</a></div>
+        {% endfor %}
+        <div class="foot_list location"><a href="{% url 'magali_app:contact' %}">Əlaqə</a></div>
+        <div class="foot_list location"><a href="{% url 'magali_app:messages' %}">Mesaj qutusu</a></div>
+        <div class="foot_list location">+994773009393</div>      
         <div class="social_footer foot_list">
             <div class="div_icon"><a href=""></a><i class="fa-brands fa-facebook"></i></div>
             <div class="div_icon"><a href=""></a><i class="fa-brands fa-instagram"></i></div>
