@@ -1,9 +1,10 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class SettingsModel(models.Model):
     about_banner = models.ImageField(upload_to="imgfiles/",null=True,blank=True)
-    about_content = models.TextField(null= True, blank = True)
+    about_content = RichTextField()
     vision = models.CharField(max_length=256,null = True, blank= True)
     mission = models.CharField(max_length=256,null= True, blank = True)
     values_context = models.CharField(max_length=256,null= True, blank = True)
@@ -63,7 +64,7 @@ class CorporativeTrainingModel(models.Model):
 class CTCategoryModel(models.Model):
     corporativetraining = models.ForeignKey(CorporativeTrainingModel,on_delete=models.CASCADE,related_name="ctccategories")
     name = models.CharField(max_length=256)
-    content = models.TextField(null= True, blank = True)
+    content = RichTextField()
 
     class Meta:
         verbose_name = "CTCategory"
@@ -101,7 +102,7 @@ class ContactModel(models.Model):
     
 class ConsultingModel(models.Model):
     name = models.CharField(max_length=256)
-    content=models.TextField(null= True, blank = True)
+    content=RichTextField()
     banner=models.ImageField(upload_to="consultingfiles/",null=True,blank=True)
 
     class Meta:
@@ -114,7 +115,7 @@ class ConsultingModel(models.Model):
 class ConsultingUnitModel(models.Model):
     consulting = models.ForeignKey(ConsultingModel,on_delete=models.CASCADE,related_name="consultingunits")
     name = models.CharField(max_length=256)
-    content = models.TextField(null= True, blank = True)
+    content = RichTextField()
     banner=models.ImageField(upload_to="unitfiles/",null=True,blank=True)
 
     class Meta:

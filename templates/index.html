@@ -4,7 +4,7 @@
         <div class="about_head gradient"><h2>Haqqımızda</h2></div>
         <div class="about_content">
             <div class="about_img"><img src="{{settings.about_banner.url}}" alt=""></div>
-            <div class="about_text"><p>{{settings.about_content}}</p></div>       
+            <div class="about_text"><p>{{settings.about_content|safe}}</p></div>       
             <a href="{% url 'magali_app:about' %}"><div class="services_btn"><button class="btn">Daha ətraflı</button></div></a>
         </div>
       </div>
@@ -15,7 +15,7 @@
               {% for image in service.service_images.all %}
               <div class="services_img"><img src="{{image.image.url}}" alt="{{service.title}}"></div>
               {% endfor %}
-              <div class="services_text"><p>{{service.service_content}}</p></div>
+              <div class="services_text"><p>{{service.service_content|safe}}</p></div>
               <div><a href="{% url 'magali_app:servicedetail' service.id %}"><div class="services_btn"><button class="btn">Daha ətraflı</button></div></a></div>
           </div>
           

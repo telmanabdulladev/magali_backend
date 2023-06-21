@@ -10,7 +10,7 @@
         {% if unit.banner %}
         <div class="about_img"><img src="{{unit.banner.url}}" alt=""></div>
         {% endif %}
-        <div class="about_text"><p>{{unit.content}}</p></div>
+        <div class="about_text"><p>{{unit.content|safe}}</p></div>
     </div>
   </div>
 {% endblock %}

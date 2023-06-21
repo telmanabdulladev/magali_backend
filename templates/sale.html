@@ -12,7 +12,7 @@
     {% for image in ctcategory.category_images.all %}
     <div class="about_img"><img src="{{image.image.url}}"style="margin:0 auto" alt=""></div>
     {% endfor %}
-    <div class="about_text"><p>{{ctcategory.content}}</p></div>
+    <div class="about_text"><p>{{ctcategory.content|safe}}</p></div>
     </div>
 </div>
 
