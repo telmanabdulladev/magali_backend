@@ -18,7 +18,7 @@ class SettingsModel(models.Model):
     
 class ServicesModel(models.Model):
     title = models.CharField(max_length=256,null=True, blank=True)
-    service_content = models.TextField(null= True, blank = True)
+    service_content = RichTextField()
 
     class Meta:
         verbose_name = "Service"
